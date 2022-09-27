@@ -1,7 +1,12 @@
 import "./App.css";
+import Chessboard from "./components/Chessboard";
 
 function App() {
-  return <div>chess board</div>;
+  return (
+    <div>
+      <Chessboard />
+    </div>
+  );
 }
 
 export default App;
