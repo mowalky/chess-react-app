@@ -15,10 +15,7 @@ export default function Chessboard() {
           className={`tile ${
             tileNumber % 2 === 0 ? "black-tile" : "white-tile"
           }`}
-        >
-          [{horizontalAxis[i]}
-          {verticalAxis[j]}]
-        </span>
+        ></span>
       );
     }
   }
