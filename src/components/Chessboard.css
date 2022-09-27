@@ -5,9 +5,18 @@
   background-color: #779556;
   width: 800px;
   height: 800px;
+  background-color: blue;
 }
 
 #chessboard .tile {
   width: 100px;
   height: 100px;
+}
+
+#chessboard .black-tile {
+  background-color: #779556;
+}
+
+#chessboard .white-tile {
+  background-color: #ebecd0;
 }

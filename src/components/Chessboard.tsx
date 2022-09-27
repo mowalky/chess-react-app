@@ -9,8 +9,13 @@ export default function Chessboard() {
 
   for (let i = 0; i < horizontalAxis.length; i++) {
     for (let j = verticalAxis.length - 1; j >= 0; j--) {
+      const tileNumber = j + i + 2;
       board.push(
-        <span className="tile">
+        <span
+          className={`tile ${
+            tileNumber % 2 === 0 ? "black-tile" : "white-tile"
+          }`}
+        >
           [{horizontalAxis[i]}
           {verticalAxis[j]}]
         </span>
