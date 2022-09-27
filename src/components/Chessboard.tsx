@@ -8,11 +8,11 @@ export default function Chessboard() {
   const board: any = [];
 
   for (let i = 0; i < horizontalAxis.length; i++) {
-    for (let j = 0; j < verticalAxis.length; j++) {
+    for (let j = verticalAxis.length - 1; j >= 0; j--) {
       board.push(
-        <span>
-          {horizontalAxis[i]}
-          {verticalAxis[j]}
+        <span className="tile">
+          [{horizontalAxis[i]}
+          {verticalAxis[j]}]
         </span>
       );
     }
