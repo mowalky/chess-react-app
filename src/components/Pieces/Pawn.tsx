@@ -1,5 +1,5 @@
-const Pawn = ({ color = "w" }: { color?: string }) => (
-  <img alt="pawn" src={`/assets/images/pawn_${color}.png`} />
+const Pawn = ({ p = "pawn", c = "w" }) => (
+  <img alt="pawn" src={`/assets/images/${p}_${c}.png`} />
 );
 
 export default Pawn;

@@ -1,13 +1,13 @@
 import "./Tile.css";
 
-import Pawn from "../Pieces/Pawn";
+import ChessPiece from "../Pieces/Piece";
 
 const Tile = ({ tileNumber }: { tileNumber: number }) => {
   return (
     <span
       className={`tile ${tileNumber % 2 === 0 ? "black-tile" : "white-tile"}`}
     >
-      <Pawn color={tileNumber % 2 === 0 ? "w" : "b"} />
+      <ChessPiece p="king" />
     </span>
   );
 };
