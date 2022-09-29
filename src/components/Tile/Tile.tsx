@@ -7,7 +7,7 @@ const Tile = ({ tileNumber }: { tileNumber: number }) => {
     <span
       className={`tile ${tileNumber % 2 === 0 ? "black-tile" : "white-tile"}`}
     >
-      <ChessPiece p="king" />
+      <ChessPiece piece="queen" color="b" />
     </span>
   );
 };

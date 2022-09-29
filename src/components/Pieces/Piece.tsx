@@ -1,5 +1,11 @@
-const ChessPiece = ({ p = "pawn", c = "w" }) => {
-  return <img alt="pawn" src={`/assets/images/${p}_${c}.png`} />;
+const ChessPiece = ({
+  piece = "pawn",
+  color = "w",
+}: {
+  piece: "pawn" | "king" | "queen" | "rook" | "knight";
+  color: "b" | "w";
+}) => {
+  return <img alt="pawn" src={`/assets/images/${piece}_${color}.png`} />;
 };
 
 export default ChessPiece;
