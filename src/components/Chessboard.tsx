@@ -1,4 +1,3 @@
-import React from "react";
 import "./Chessboard.css";
 
 const horizontalAxis = ["a", "b", "c", "d", "e", "f", "g", "h"];
