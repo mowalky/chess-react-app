@@ -1,3 +1,10 @@
+#chessboard .tile {
+  width: 100px;
+  height: 100px;
+  display: grid;
+  place-content: center;
+}
+
 #chessboard .black-tile {
   background-color: #779556;
 }
