@@ -1,0 +1,7 @@
+#chessboard .black-tile {
+  background-color: #779556;
+}
+
+#chessboard .white-tile {
+  background-color: #ebecd0;
+}
