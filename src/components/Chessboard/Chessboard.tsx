@@ -7,12 +7,12 @@ const verticalAxis = [1, 2, 3, 4, 5, 6, 7, 8];
 export default function Chessboard() {
   const board: any = [];
 
-  for (let i = 0; i < horizontalAxis.length; i++) {
-    for (let j = verticalAxis.length - 1; j >= 0; j--) {
+  horizontalAxis.forEach((_, i) => {
+    verticalAxis.reverse().forEach((_, j) => {
       const tileNumber = j + i + 2;
       board.push(<Tilt tileNumber={tileNumber} />);
-    }
-  }
+    });
+  });
 
   return <div id="chessboard">{board}</div>;
 }
