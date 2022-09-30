@@ -2,12 +2,20 @@ import "./Tile.css";
 
 import ChessPiece from "../Pieces/Piece";
 
-const Tile = ({ tile, tileNumber }: { tile: string; tileNumber: number }) => {
+const Tile = ({
+  tile,
+  tileNumber,
+  piece,
+}: {
+  tile: string;
+  tileNumber: number;
+  piece?: any;
+}) => {
   return (
     <span
       className={`tile ${tileNumber % 2 === 0 ? "black-tile" : "white-tile"}`}
     >
-      {tile}
+      {piece && <ChessPiece piece={piece} color="b" />}
     </span>
   );
 };
