@@ -1,10 +1,11 @@
 import "./Chessboard.css";
 import Tilt from "../Tile/Tile";
+import { useState } from "react";
 
 const horizontalSquares = ["a", "b", "c", "d", "e", "f", "g", "h"];
 const verticalSquares = [1, 2, 3, 4, 5, 6, 7, 8];
 
-const boardState: any = {
+const initialSetup: any = {
   a1: { p: "rook", c: "w" },
   b1: { p: "bishop", c: "w" },
   c1: { p: "knight", c: "w" },
@@ -40,6 +41,15 @@ const boardState: any = {
 };
 
 export default function Chessboard() {
+  const [boardState, setBoardState] = useState(initialSetup);
+
+  const movePiece = () => {
+    setBoardState({
+      ...boardState,
+      g8: { p: "king", c: "b" },
+    });
+  };
+
   const board: any = [];
   let count = verticalSquares.length;
   horizontalSquares.forEach((_, i) => {
@@ -67,5 +77,5 @@ export default function Chessboard() {
     count--;
   });
 
-  return <div id="chessboard">{board}</div>;
+  return <><button>move</button></button><div id="chessboard">{board}</div>;
 }
