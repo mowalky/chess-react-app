@@ -21,6 +21,7 @@ const Tile = ({
         tileNumber % 2 === 0 ? "black-tile" : "white-tile"
       }`}
     >
+      {tile}
       {piece && <ChessPiece piece={piece} color={color} />}
     </span>
   );

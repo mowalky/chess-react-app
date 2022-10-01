@@ -48,45 +48,41 @@ export default function Chessboard() {
 
   const resetBoard = () => {
     setBoardState(initialSetup);
+    setTileTo("");
+    setTileFrom("");
+    setActiveSquare("");
   };
 
   const handleTileClick = (event: any, sqaure: string) => {
-    switch (event.detail) {
-      case 1: {
-        if (activeSquare === sqaure) {
-          setActiveSquare("");
-        }
-
-        if (!activeSquare) {
-          setTileFrom(sqaure);
-          setActiveSquare(sqaure);
-          movePiece();
-        } else {
-          setTileTo(sqaure);
-          movePiece();
-        }
-
-        break;
-      }
-      case 2: {
-        setTileTo(sqaure);
-        movePiece();
-        break;
-      }
-      default: {
-        break;
-      }
+    // set as from square
+    if (!activeSquare) {
+      setTileFrom(sqaure);
+      setActiveSquare(sqaure);
+      console.log("setting from");
+      return;
     }
+
+    // if from square set, set as to square
+    setTileTo(sqaure);
+    movePiece();
+    // move piece
   };
 
   const movePiece = () => {
-    const getPiece = boardState[tileFrom];
-
-    setBoardState({
-      ...boardState,
-      [tileFrom]: {},
-      [tileTo]: getPiece,
-    });
+    if (tileTo) {
+      const getPiece = boardState[tileFrom];
+      console.log(tileTo);
+      let newBoard = {
+        ...boardState,
+      };
+      newBoard[tileFrom] = {};
+      newBoard[tileTo] = getPiece;
+      setBoardState(newBoard);
+      console.log(boardState[tileTo]);
+      setTileTo("");
+      setTileFrom("");
+      setActiveSquare("");
+    }
   };
 
   const board: any = [];
@@ -121,6 +117,9 @@ export default function Chessboard() {
 
   return (
     <>
+      <button>
+        from:{tileFrom} - to:{tileTo}
+      </button>
       <div id="chessboard">{board}</div>
       <button onClick={() => resetBoard()}>reset</button>
     </>
