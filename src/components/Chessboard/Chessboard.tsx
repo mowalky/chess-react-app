@@ -42,17 +42,38 @@ const initialSetup: any = {
 
 export default function Chessboard() {
   const [boardState, setBoardState] = useState(initialSetup);
+  const [tileFrom, setTileFrom] = useState("");
+  const [tileTo, setTileTo] = useState("");
 
   const resetBoard = () => {
     setBoardState(initialSetup);
   };
 
-  const movePiece = (from: string, to: string) => {
+  const handleTileClick = (event: any, sqaure: string) => {
+    switch (event.detail) {
+      case 1: {
+        setTileFrom(sqaure);
+        movePiece();
+        break;
+      }
+      case 2: {
+        setTileTo(sqaure);
+        movePiece();
+        break;
+      }
+      default: {
+        break;
+      }
+    }
+  };
+
+  const movePiece = () => {
+    const getPiece = boardState[tileFrom];
+
     setBoardState({
       ...boardState,
-      [from]: {},
-
-      [to]: { p: "knight", c: "w" },
+      [tileFrom]: {},
+      [tileTo]: getPiece,
     });
   };
 
@@ -71,13 +92,15 @@ export default function Chessboard() {
       }
 
       board.push(
-        <Tilt
-          piece={p}
-          color={c}
-          key={square}
-          tile={square}
-          tileNumber={tileNumber}
-        />
+        <div onClick={(e) => handleTileClick(e, square)}>
+          <Tilt
+            piece={p}
+            color={c}
+            key={square}
+            tile={square}
+            tileNumber={tileNumber}
+          />
+        </div>
       );
     });
     count--;
@@ -85,7 +108,6 @@ export default function Chessboard() {
 
   return (
     <>
-      <button onClick={() => movePiece("c1", "c5")}>move</button>
       <div id="chessboard">{board}</div>
       <button onClick={() => resetBoard()}>reset</button>
     </>
