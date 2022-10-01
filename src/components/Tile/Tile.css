@@ -16,3 +16,7 @@
 .white-tile {
   background-color: #ebecd0;
 }
+
+.active {
+  background-color: pink !important;
+}

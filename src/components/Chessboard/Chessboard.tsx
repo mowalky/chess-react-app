@@ -44,6 +44,7 @@ export default function Chessboard() {
   const [boardState, setBoardState] = useState(initialSetup);
   const [tileFrom, setTileFrom] = useState("");
   const [tileTo, setTileTo] = useState("");
+  const [activeSquare, setActiveSquare] = useState("");
 
   const resetBoard = () => {
     setBoardState(initialSetup);
@@ -52,8 +53,19 @@ export default function Chessboard() {
   const handleTileClick = (event: any, sqaure: string) => {
     switch (event.detail) {
       case 1: {
-        setTileFrom(sqaure);
-        movePiece();
+        if (activeSquare === sqaure) {
+          setActiveSquare("");
+        }
+
+        if (!activeSquare) {
+          setTileFrom(sqaure);
+          setActiveSquare(sqaure);
+          movePiece();
+        } else {
+          setTileTo(sqaure);
+          movePiece();
+        }
+
         break;
       }
       case 2: {
@@ -94,6 +106,7 @@ export default function Chessboard() {
       board.push(
         <div onClick={(e) => handleTileClick(e, square)}>
           <Tilt
+            active={activeSquare}
             piece={p}
             color={c}
             key={square}
