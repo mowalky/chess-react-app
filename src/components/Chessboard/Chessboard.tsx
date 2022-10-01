@@ -43,6 +43,10 @@ const initialSetup: any = {
 export default function Chessboard() {
   const [boardState, setBoardState] = useState(initialSetup);
 
+  const resetBoard = () => {
+    setBoardState(initialSetup);
+  };
+
   const movePiece = (from: string, to: string) => {
     setBoardState({
       ...boardState,
@@ -83,6 +87,7 @@ export default function Chessboard() {
     <>
       <button onClick={() => movePiece("c1", "c5")}>move</button>
       <div id="chessboard">{board}</div>
+      <button onClick={() => resetBoard()}>reset</button>
     </>
   );
 }
