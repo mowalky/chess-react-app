@@ -106,19 +106,17 @@ export default function Chessboard() {
       }
 
       board.push(
-        <div>
-          <Tilt
-            handleTileClick={handleTileClick}
-            active={activeSquare}
-            highlight={hightlighMoves.find((h) => h === square)}
-            setHightlighMoves={setHightlighMoves}
-            piece={p}
-            color={c}
-            key={square}
-            tile={square}
-            tileNumber={tileNumber}
-          />
-        </div>
+        <Tilt
+          handleTileClick={handleTileClick}
+          active={activeSquare}
+          highlight={hightlighMoves.find((h) => h === square)}
+          setHightlighMoves={setHightlighMoves}
+          piece={p}
+          color={c}
+          key={square}
+          tile={square}
+          tileNumber={tileNumber}
+        />
       );
     });
     count--;
