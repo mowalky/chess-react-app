@@ -4,7 +4,7 @@ Just playing around with how to build a chess game using React.
 
 <div align="center">
   <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/samsung/320/black-chess-knight_265e.png" />
-  <br/>## REACT*CHESS
+  <br/><h6>REACT*CHESS</h6>
 </div>
 
 #### TODO
