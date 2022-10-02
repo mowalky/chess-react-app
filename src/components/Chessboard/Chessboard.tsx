@@ -45,16 +45,17 @@ export default function Chessboard() {
   const [tileFrom, setTileFrom] = useState("");
   const [tileTo, setTileTo] = useState("");
   const [activeSquare, setActiveSquare] = useState("");
-  const [hightlighMoves, setHightlighMoves] = useState(["f5", "a1", "h8"]);
+  const [hightlighMoves, setHightlighMoves] = useState([]);
 
   const resetBoard = () => {
     setBoardState(initialSetup);
     setTileTo("");
     setTileFrom("");
     setActiveSquare("");
+    setHightlighMoves([])
   };
 
-  const handleTileClick = (event: any, sqaure: string) => {
+  const handleTileClick = (sqaure: string) => {
     // check if piece
 
     if (sqaure === activeSquare) {
@@ -104,8 +105,9 @@ export default function Chessboard() {
       }
 
       board.push(
-        <div onClick={(e) => handleTileClick(e, square)}>
+        <div >
           <Tilt
+          handleTileClick={handleTileClick}
             active={activeSquare}
             highlight={hightlighMoves.find((h) => h === square)}
             setHightlighMoves={setHightlighMoves}

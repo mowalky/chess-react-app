@@ -11,6 +11,7 @@ const Tile = ({
   active,
   highlight,
   setHightlighMoves,
+  handleTileClick,
   tile,
   tileNumber,
   piece,
@@ -19,14 +20,21 @@ const Tile = ({
   active: string;
   highlight?: string;
   setHightlighMoves: any;
+  handleTileClick: (square:string)=>void;
   tile: string;
   tileNumber: number;
   piece?: any;
   color?: any;
 }) => {
   const [showPopUp, setShowPopUp] = useState(false);
+
+  const handleClick = () => {
+    handleTileClick(tile);
+  }
+
   return (
     <span
+    onClick={() => handleClick()}
       onMouseOver={() => setShowPopUp(true)}
       onMouseOut={() => setShowPopUp(false)}
       className={`tile ${(active === tile || highlight) && "active"} ${
