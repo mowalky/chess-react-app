@@ -45,6 +45,7 @@ export default function Chessboard() {
   const [tileFrom, setTileFrom] = useState("");
   const [tileTo, setTileTo] = useState("");
   const [activeSquare, setActiveSquare] = useState("");
+  const [hightlighMoves, setHightlighMoves] = useState(["f5", "a1", "h8"]);
 
   const resetBoard = () => {
     setBoardState(initialSetup);
@@ -106,6 +107,8 @@ export default function Chessboard() {
         <div onClick={(e) => handleTileClick(e, square)}>
           <Tilt
             active={activeSquare}
+            highlight={hightlighMoves.find((h) => h === square)}
+            setHightlighMoves={setHightlighMoves}
             piece={p}
             color={c}
             key={square}
