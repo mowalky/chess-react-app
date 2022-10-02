@@ -20,3 +20,8 @@
 .active {
   background-color: pink !important;
 }
+.highlight:before {
+  content: "\2BC1";
+  font-size: 20px;
+  opacity: 0.4;
+}

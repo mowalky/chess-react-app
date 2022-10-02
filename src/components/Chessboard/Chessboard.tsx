@@ -52,7 +52,7 @@ export default function Chessboard() {
     setTileTo("");
     setTileFrom("");
     setActiveSquare("");
-    setHightlighMoves([])
+    setHightlighMoves([]);
   };
 
   const handleTileClick = (sqaure: string) => {
@@ -62,6 +62,7 @@ export default function Chessboard() {
       setTileTo("");
       setTileFrom("");
       setActiveSquare("");
+      setHightlighMoves([]);
       return;
     }
 
@@ -105,9 +106,9 @@ export default function Chessboard() {
       }
 
       board.push(
-        <div >
+        <div>
           <Tilt
-          handleTileClick={handleTileClick}
+            handleTileClick={handleTileClick}
             active={activeSquare}
             highlight={hightlighMoves.find((h) => h === square)}
             setHightlighMoves={setHightlighMoves}
