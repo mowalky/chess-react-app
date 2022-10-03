@@ -42,8 +42,6 @@ const Tile = ({
   return (
     <span
       onClick={() => handleClick()}
-      onMouseOver={() => setShowPopUp(true)}
-      onMouseOut={() => setShowPopUp(false)}
       className={`tile ${highlight === tile && "highlight"} ${
         active === tile && "active"
       } ${tileNumber % 2 === 0 ? "black-tile" : "white-tile"}`}
