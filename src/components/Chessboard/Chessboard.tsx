@@ -89,6 +89,7 @@ export default function Chessboard() {
     setTileTo("");
     setTileFrom("");
     setActiveSquare("");
+    setHightlighMoves([]);
   };
 
   const board: any = [];
