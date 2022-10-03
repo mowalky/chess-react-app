@@ -49,6 +49,11 @@ export default function Chessboard() {
 
   const resetBoard = () => {
     setBoardState(initialSetup);
+    resetTiles();
+    setHightlighMoves([]);
+  };
+
+  const resetTiles = () => {
     setTileTo("");
     setTileFrom("");
     setActiveSquare("");
@@ -59,10 +64,7 @@ export default function Chessboard() {
     // check if piece
 
     if (sqaure === activeSquare) {
-      setTileTo("");
-      setTileFrom("");
-      setActiveSquare("");
-      setHightlighMoves([]);
+      resetTiles();
       return;
     }
 
@@ -86,10 +88,7 @@ export default function Chessboard() {
     newBoard[tileFrom] = {};
     newBoard[sqaure] = getPiece;
     setBoardState(newBoard);
-    setTileTo("");
-    setTileFrom("");
-    setActiveSquare("");
-    setHightlighMoves([]);
+    resetTiles();
   };
 
   const board: any = [];
