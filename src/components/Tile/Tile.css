@@ -24,4 +24,10 @@
   content: "\2BC1";
   font-size: 20px;
   opacity: 0.4;
+  position: absolute;
+  padding-left: 42px;
+  padding-top: 35px;
+}
+.highlight {
+  background-color: rgb(150, 0, 125);
 }
