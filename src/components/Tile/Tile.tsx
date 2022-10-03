@@ -3,6 +3,29 @@ import { useState } from "react";
 
 import ChessPiece from "../Pieces/Piece";
 
+interface validMoves {
+  boardstate?: [];
+  square: string;
+  piece: string;
+  color: string;
+}
+
+const availableMoves = ({ boardstate, square, piece, color }: validMoves) => {
+  console.log(`=== checking for valid moves for ${piece} ===`);
+  const y = square.charAt(0);
+  const x = Number(square.charAt(1));
+  let moves;
+
+  switch (piece) {
+    case "pawn":
+      console.log(`(${color})pawn moves from ${square}`);
+      moves = [`${y}${x + 1}`, `${y}${x + 2}`];
+      break;
+  }
+
+  return moves;
+};
+
 const Popup = ({ message }: { message: string }) => {
   return <div>{message}</div>;
 };
@@ -35,7 +58,12 @@ const Tile = ({
     const y = currentSquare.charAt(0);
     const x = Number(currentSquare.charAt(1));
     console.log(`${y}${x + 1}`);
-    setHightlighMoves([`${y}${x + 1}`, `${y}${x + 2}`]);
+    const moves = availableMoves({
+      square: currentSquare,
+      piece: piece,
+      color: color,
+    });
+    setHightlighMoves(moves);
     handleTileClick(tile);
   };
 
