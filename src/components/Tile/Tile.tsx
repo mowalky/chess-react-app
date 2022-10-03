@@ -14,12 +14,15 @@ const availableMoves = ({ boardstate, square, piece, color }: validMoves) => {
   console.log(`=== checking for valid moves for ${piece} ===`);
   const y = square.charAt(0);
   const x = Number(square.charAt(1));
-  let moves;
+  let moves = [`${y}${x + 1}`, `${y}${x + 2}`];
 
   switch (piece) {
     case "pawn":
       console.log(`(${color})pawn moves from ${square}`);
-      moves = [`${y}${x + 1}`, `${y}${x + 2}`];
+      moves = [
+        `${y}${color === "b" ? x - 1 : x + 1}`,
+        `${y}${color === "b" ? x - 2 : x + 2}`,
+      ];
       break;
   }
 
