@@ -23,7 +23,7 @@
   background-color: rgb(157, 221, 237) !important;
 }
 .highlight:before {
-  content: "\2BC1";
+  content: "◆";
   font-size: 20px;
   opacity: 0.4;
   position: absolute;
@@ -31,5 +31,6 @@
   padding-top: 35px;
 }
 .highlight {
-  background-color: #edd59d;
+  box-shadow: inset 0 0px 20px 5px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.3s ease-in-out;
 }
