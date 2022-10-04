@@ -36,7 +36,7 @@ const availableMoves = ({ boardstate, square, piece, color }: validMoves) => {
 
     case "king":
       console.log(`(${color})king moves from ${square}`);
-      console.log(`${prevLetter(y)}${x + 1}`);
+
       moves = [
         `${y}${color === "b" ? x - 1 : x + 1}`,
         `${prevLetter(y)}${x + 1}`,
@@ -47,6 +47,21 @@ const availableMoves = ({ boardstate, square, piece, color }: validMoves) => {
         `${nextLetter(y)}${x - 1}`,
         `${y}${color === "b" ? x + 1 : x - 1}`,
       ];
+      break;
+
+    case "rook":
+      console.log(`(${color})rook moves from ${square}`);
+      const values = Array.from({ length: 8 }, (_, i) => i + 1);
+      moves = values.map((a) => `${y}${color === "b" ? x - a : x + a}`);
+      let curLetter = y;
+      let preletter = y;
+      values.forEach((v) => {
+        moves.push(`${nextLetter(curLetter)}${x}`);
+        curLetter = nextLetter(curLetter);
+        moves.push(`${prevLetter(preletter)}${x}`);
+        preletter = prevLetter(preletter);
+      });
+
       break;
   }
 
