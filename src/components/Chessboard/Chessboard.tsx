@@ -60,33 +60,42 @@ export default function Chessboard() {
     setHightlighMoves([]);
   };
 
-  const handleTileClick = (sqaure: string) => {
+  const handleTileClick = (square: string) => {
     // check if piece
 
-    if (sqaure === activeSquare) {
+    // check for valid moves
+    if (
+      hightlighMoves.length &&
+      !hightlighMoves.filter((m) => m === square)[0]
+    ) {
+      resetTiles();
+      return;
+    }
+
+    if (square === activeSquare) {
       resetTiles();
       return;
     }
 
     // set as from square
     if (!activeSquare) {
-      setTileFrom(sqaure);
-      setActiveSquare(sqaure);
-      console.log("setting from " + sqaure);
+      setTileFrom(square);
+      setActiveSquare(square);
+      console.log("setting from " + square);
       return;
     }
 
     const getPiece = boardState[tileFrom];
     // if from square set, set as to square
-    setTileTo(sqaure);
-    console.log(getPiece.p + " to " + sqaure);
+    setTileTo(square);
+    console.log(getPiece.p + " to " + square);
 
     // move piece
     let newBoard = {
       ...boardState,
     };
     newBoard[tileFrom] = {};
-    newBoard[sqaure] = getPiece;
+    newBoard[square] = getPiece;
     setBoardState(newBoard);
     resetTiles();
   };
