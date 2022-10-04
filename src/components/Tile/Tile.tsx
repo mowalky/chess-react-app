@@ -45,7 +45,7 @@ const availableMoves = ({ boardstate, square, piece, color }: validMoves) => {
         `${prevLetter(y)}${x}`,
         `${prevLetter(y)}${x - 1}`,
         `${nextLetter(y)}${x - 1}`,
-        `${y}${x - 1}`,
+        `${y}${color === "b" ? x + 1 : x - 1}`,
       ];
       break;
   }
@@ -80,18 +80,19 @@ const Tile = ({
 
   const handleClick = () => {
     // current square and two spaces up/or down
-
-    const currentSquare = tile;
-    const y = currentSquare.charAt(0);
-    const x = Number(currentSquare.charAt(1));
-    console.log(`${y}${x + 1}`);
-    const moves = availableMoves({
-      square: currentSquare,
-      piece: piece,
-      color: color,
-    });
-    setHightlighMoves(moves);
-    handleTileClick(tile);
+    if (piece) {
+      const currentSquare = tile;
+      const y = currentSquare.charAt(0);
+      const x = Number(currentSquare.charAt(1));
+      console.log(`${y}${x + 1}`);
+      const moves = availableMoves({
+        square: currentSquare,
+        piece: piece,
+        color: color,
+      });
+      setHightlighMoves(moves);
+      handleTileClick(tile);
+    }
   };
 
   return (
