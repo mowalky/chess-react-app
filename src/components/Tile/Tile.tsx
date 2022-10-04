@@ -10,6 +10,14 @@ interface validMoves {
   color: string;
 }
 
+function nextLetter(letter: string) {
+  return String.fromCharCode(letter.charCodeAt(letter.length - 1) + 1);
+}
+
+function prevLetter(letter: string) {
+  return String.fromCharCode(letter.charCodeAt(letter.length - 1) - 1);
+}
+
 const availableMoves = ({ boardstate, square, piece, color }: validMoves) => {
   console.log(`=== checking for valid moves for ${piece} ===`);
   const y = square.charAt(0);
@@ -23,6 +31,21 @@ const availableMoves = ({ boardstate, square, piece, color }: validMoves) => {
       moves = [
         `${y}${color === "b" ? x - 1 : x + 1}`,
         `${(x === 2 || x === 7) && `${y}${color === "b" ? x - 2 : x + 2}`}`,
+      ];
+      break;
+
+    case "king":
+      console.log(`(${color})king moves from ${square}`);
+      console.log(`${prevLetter(y)}${x + 1}`);
+      moves = [
+        `${y}${color === "b" ? x - 1 : x + 1}`,
+        `${prevLetter(y)}${x + 1}`,
+        `${nextLetter(y)}${x + 1}`,
+        `${nextLetter(y)}${x}`,
+        `${prevLetter(y)}${x}`,
+        `${prevLetter(y)}${x - 1}`,
+        `${nextLetter(y)}${x - 1}`,
+        `${y}${x - 1}`,
       ];
       break;
   }
