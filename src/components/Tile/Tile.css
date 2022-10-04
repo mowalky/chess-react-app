@@ -10,15 +10,17 @@
 }
 
 .black-tile {
-  background-color: #779556;
+  /*background-color: #779556;*/
+  background-color: #7a9cb3;
 }
 
 .white-tile {
-  background-color: #ebecd0;
+  /* background-color: #ebecd0; */
+  background-color: #d7e1e7;
 }
 
 .active {
-  background-color: pink !important;
+  background-color: rgb(157, 221, 237) !important;
 }
 .highlight:before {
   content: "\2BC1";
@@ -29,5 +31,5 @@
   padding-top: 35px;
 }
 .highlight {
-  background-color: rgb(150, 0, 125);
+  background-color: #edd59d;
 }
