@@ -79,8 +79,8 @@ const Tile = ({
   const [showPopUp, setShowPopUp] = useState(false);
 
   const handleClick = () => {
-    // current square and two spaces up/or down
-    if (piece) {
+    //  only if tile has a piece or is highlighed as a valid move
+    if (piece || highlight) {
       const currentSquare = tile;
       const y = currentSquare.charAt(0);
       const x = Number(currentSquare.charAt(1));
