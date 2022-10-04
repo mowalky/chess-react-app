@@ -3,10 +3,10 @@ import { useState } from "react";
 
 import ChessPiece from "../Pieces/Piece";
 
-interface validMoves {
+interface validMoves<T> {
   boardstate?: [];
   square: string;
-  piece: string;
+  piece: T;
   color: string;
 }
 
@@ -50,8 +50,8 @@ const Tile = ({
   handleTileClick: (square: string) => void;
   tile: string;
   tileNumber: number;
-  piece?: any;
-  color?: any;
+  piece?: string;
+  color: "b" | "w";
 }) => {
   const [showPopUp, setShowPopUp] = useState(false);
 
