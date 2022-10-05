@@ -5,10 +5,14 @@ const rookMoves = (x: number, y: string, color: string) => {
   let moves = values.map((a) => `${y}${color === "b" ? x - a : x + a}`);
   let curLetter = y;
   let preletter = y;
-  values.forEach((v) => {
+
+  values.forEach((v, i) => {
+    console.log(x);
     moves.push(`${nextLetter(curLetter)}${x}`);
+    moves.push(`${y}${x - (i + 1)}`);
     curLetter = nextLetter(curLetter);
     moves.push(`${prevLetter(preletter)}${x}`);
+
     preletter = prevLetter(preletter);
   });
 
