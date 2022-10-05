@@ -4,6 +4,8 @@ import { useState } from "react";
 import ChessPiece from "../Pieces/Piece";
 
 import rookMoves from "../../moves/rook";
+import kingMoves from "../../moves/king";
+
 interface validMoves {
   boardstate?: [];
   square: string;
@@ -37,17 +39,7 @@ const availableMoves = ({ boardstate, square, piece, color }: validMoves) => {
 
     case "king":
       console.log(`(${color})king moves from ${square}`);
-
-      moves = [
-        `${y}${color === "b" ? x - 1 : x + 1}`,
-        `${prevLetter(y)}${x + 1}`,
-        `${nextLetter(y)}${x + 1}`,
-        `${nextLetter(y)}${x}`,
-        `${prevLetter(y)}${x}`,
-        `${prevLetter(y)}${x - 1}`,
-        `${nextLetter(y)}${x - 1}`,
-        `${y}${color === "b" ? x + 1 : x - 1}`,
-      ];
+      moves = kingMoves(x, y, color);
       break;
 
     case "rook":
