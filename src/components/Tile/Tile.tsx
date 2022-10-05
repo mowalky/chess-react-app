@@ -4,6 +4,7 @@ import { useState } from "react";
 import ChessPiece from "../Pieces/Piece";
 
 // moves by piece
+import bishopMoves from "../../moves/bishop";
 import pawnMoves from "../../moves/pawn";
 import rookMoves from "../../moves/rook";
 import kingMoves from "../../moves/king";
@@ -35,6 +36,11 @@ const availableMoves = ({ boardstate, square, piece, color }: validMoves) => {
     case "rook":
       console.log(`(${color})rook moves from ${square}`);
       moves = rookMoves(x, y, color);
+      break;
+
+    case "bishop":
+      console.log(`(${color})bishop moves from ${square}`);
+      moves = bishopMoves(x, y, color);
       break;
   }
 
