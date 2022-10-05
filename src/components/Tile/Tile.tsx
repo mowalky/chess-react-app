@@ -3,6 +3,8 @@ import { useState } from "react";
 
 import ChessPiece from "../Pieces/Piece";
 
+// moves by piece
+import pawnMoves from "../../moves/pawn";
 import rookMoves from "../../moves/rook";
 import kingMoves from "../../moves/king";
 
@@ -11,14 +13,6 @@ interface validMoves {
   square: string;
   piece: string;
   color: string;
-}
-
-function nextLetter(letter: string) {
-  return String.fromCharCode(letter.charCodeAt(letter.length - 1) + 1);
-}
-
-function prevLetter(letter: string) {
-  return String.fromCharCode(letter.charCodeAt(letter.length - 1) - 1);
 }
 
 const availableMoves = ({ boardstate, square, piece, color }: validMoves) => {
@@ -30,11 +24,7 @@ const availableMoves = ({ boardstate, square, piece, color }: validMoves) => {
   switch (piece) {
     case "pawn":
       console.log(`(${color})pawn moves from ${square}`);
-      // only allow pawns to move 2 spaces at beginning
-      moves = [
-        `${y}${color === "b" ? x - 1 : x + 1}`,
-        `${(x === 2 || x === 7) && `${y}${color === "b" ? x - 2 : x + 2}`}`,
-      ];
+      moves = pawnMoves(x, y, color);
       break;
 
     case "king":
