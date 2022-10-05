@@ -14,7 +14,7 @@ Just playing around with how to build a chess game using React.
 - [x] Ability to move pieces to any square
 - [x] Pawn movement
 - [x] Bishop movement
-- [] Knight movement
+- [ ] Knight movement
 - [x] Rook movement
 - [x] Queen movement
 - [x] King movement
