@@ -12,15 +12,16 @@ Just playing around with how to build a chess game using React.
 - [x] Build out chessboard
 - [x] Setup pieces
 - [x] Ability to move pieces to any square
-- [ ] Pawn movement
-- [ ] Bishop movement
-- [ ] Knight movement
-- [ ] Rook movement
-- [ ] Queen movement
-- [ ] King movement
-- [ ] Clicking on piece shows available moves
+- [x] Pawn movement
+- [x] Bishop movement
+- [] Knight movement
+- [x] Rook movement
+- [x] Queen movement
+- [x] King movement
+- [x] Clicking on piece shows available moves
 - [ ] Piece vision (determining if a piece is blocking)
 - [ ] Capturing a chess piece
 - [ ] Special moves (castling, En passant)
 - [ ] Pawn promotion
 - [ ] Tracking all chess moves
+- [ ] Replay moves
