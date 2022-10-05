@@ -8,9 +8,9 @@ const bishopMoves = (x: number, y: string, color: string) => {
   values.forEach((_, i) => {
     moves.push(`${nextLetter(curLetter)}${x + (i + 1)}`);
     moves.push(`${nextLetter(curLetter)}${x - (i + 1)}`);
-    curLetter = nextLetter(curLetter);
     moves.push(`${prevLetter(preLetter)}${x + (i + 1)}`);
     moves.push(`${prevLetter(preLetter)}${x - (i + 1)}`);
+    curLetter = nextLetter(curLetter);
     preLetter = prevLetter(preLetter);
   });
   return moves;

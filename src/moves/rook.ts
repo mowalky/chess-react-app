@@ -10,9 +10,8 @@ const rookMoves = (x: number, y: string, color: string) => {
     console.log(x);
     moves.push(`${nextLetter(curLetter)}${x}`);
     moves.push(`${y}${x - (i + 1)}`);
-    curLetter = nextLetter(curLetter);
     moves.push(`${prevLetter(preletter)}${x}`);
-
+    curLetter = nextLetter(curLetter);
     preletter = prevLetter(preletter);
   });
 
