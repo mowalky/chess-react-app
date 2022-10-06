@@ -8,6 +8,7 @@ import bishopMoves from "../../moves/bishop";
 import pawnMoves from "../../moves/pawn";
 import rookMoves from "../../moves/rook";
 import kingMoves from "../../moves/king";
+import knightMoves from "../../moves/knight";
 import queenMoves from "../../moves/queen";
 
 interface validMoves {
@@ -31,6 +32,10 @@ const availableMoves = ({ boardstate, square, piece, color }: validMoves) => {
     case "king":
       console.log(`(${color})king moves from ${square}`);
       moves = kingMoves(x, y, color);
+      break;
+    case "knight":
+      console.log(`(${color})knight moves from ${square}`);
+      moves = knightMoves(x, y, color);
       break;
     case "rook":
       console.log(`(${color})rook moves from ${square}`);
