@@ -24,8 +24,9 @@ const availableMoves = ({ boardState, square, piece, color }: validMoves) => {
   const checkSquareForPiece = (moves: string[]) => {
     let validMoves: string[] = [];
     console.log(moves);
-    moves.forEach((move) => {
-      if (!boardState.hasOwnProperty(move)) validMoves.push(move);
+    moves.forEach((move: any) => {
+      console.log(`${move} - ${boardState[move]}`);
+      if (!boardState[move]?.p) validMoves.push(move);
     });
     return validMoves;
   };
