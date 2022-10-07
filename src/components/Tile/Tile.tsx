@@ -26,7 +26,7 @@ const availableMoves = ({ boardState, square, piece, color }: validMoves) => {
     console.log(moves);
     moves.forEach((move: any) => {
       console.log(`${move} - ${boardState[move]}`);
-      if (!boardState[move]?.p) validMoves.push(move);
+      if (boardState[move]?.c !== color) validMoves.push(move);
     });
     return validMoves;
   };
@@ -38,7 +38,7 @@ const availableMoves = ({ boardState, square, piece, color }: validMoves) => {
   switch (piece) {
     case "bishop":
       console.log(`(${color})bishop moves from ${square}`);
-      moves = bishopMoves(x, y, color);
+      moves = checkSquareForPiece(bishopMoves(x, y, color));
       break;
     case "king":
       console.log(`(${color})king moves from ${square}`);
@@ -46,11 +46,11 @@ const availableMoves = ({ boardState, square, piece, color }: validMoves) => {
       break;
     case "knight":
       console.log(`(${color})knight moves from ${square}`);
-      moves = knightMoves(x, y, color);
+      moves = checkSquareForPiece(knightMoves(x, y, color));
       break;
     case "rook":
       console.log(`(${color})rook moves from ${square}`);
-      moves = rookMoves(x, y, color);
+      moves = checkSquareForPiece(rookMoves(x, y, color));
       break;
     case "pawn":
       console.log(`(${color})pawn moves from ${square}`);
@@ -58,7 +58,7 @@ const availableMoves = ({ boardState, square, piece, color }: validMoves) => {
       break;
     case "queen":
       console.log(`(${color})bishop moves from ${square}`);
-      moves = queenMoves(x, y, color);
+      moves = checkSquareForPiece(queenMoves(x, y, color));
       break;
   }
 
