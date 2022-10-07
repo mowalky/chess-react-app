@@ -12,14 +12,24 @@ import knightMoves from "../../moves/knight";
 import queenMoves from "../../moves/queen";
 
 interface validMoves {
-  boardstate?: [];
+  boardState?: any;
   square: string;
   piece: string;
   color: string;
 }
 
-const availableMoves = ({ boardstate, square, piece, color }: validMoves) => {
+const availableMoves = ({ boardState, square, piece, color }: validMoves) => {
   console.log(`=== checking for valid moves for ${piece} ===`);
+
+  const checkSquareForPiece = (moves: string[]) => {
+    let validMoves: string[] = [];
+    console.log(moves);
+    moves.forEach((move) => {
+      if (!boardState.hasOwnProperty(move)) validMoves.push(move);
+    });
+    return validMoves;
+  };
+
   const y = square.charAt(0);
   const x = Number(square.charAt(1));
   let moves = [`${y}${x + 1}`, `${y}${x + 2}`];
@@ -31,7 +41,7 @@ const availableMoves = ({ boardstate, square, piece, color }: validMoves) => {
       break;
     case "king":
       console.log(`(${color})king moves from ${square}`);
-      moves = kingMoves(x, y, color);
+      moves = checkSquareForPiece(kingMoves(x, y, color));
       break;
     case "knight":
       console.log(`(${color})knight moves from ${square}`);
@@ -43,7 +53,7 @@ const availableMoves = ({ boardstate, square, piece, color }: validMoves) => {
       break;
     case "pawn":
       console.log(`(${color})pawn moves from ${square}`);
-      moves = pawnMoves(x, y, color);
+      moves = checkSquareForPiece(pawnMoves(x, y, color));
       break;
     case "queen":
       console.log(`(${color})bishop moves from ${square}`);
@@ -59,6 +69,7 @@ const Popup = ({ message }: { message: string }) => {
 };
 
 const Tile = ({
+  boardState,
   active,
   highlight,
   setHightlighMoves,
@@ -68,6 +79,7 @@ const Tile = ({
   piece,
   color,
 }: {
+  boardState: {};
   active: string;
   highlight?: string;
   setHightlighMoves: any;
@@ -87,6 +99,7 @@ const Tile = ({
       const x = Number(currentSquare.charAt(1));
       console.log(`${y}${x + 1}`);
       const moves = availableMoves({
+        boardState: boardState,
         square: currentSquare,
         piece: piece,
         color: color,

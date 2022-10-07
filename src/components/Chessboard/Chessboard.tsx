@@ -116,6 +116,7 @@ export default function Chessboard() {
 
       board.push(
         <Tilt
+          boardState={boardState}
           handleTileClick={handleTileClick}
           active={activeSquare}
           highlight={hightlighMoves.find((h) => h === square)}
