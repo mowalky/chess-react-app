@@ -2,6 +2,8 @@ import "./Chessboard.css";
 import Tilt from "../Tile/Tile";
 import { useState } from "react";
 
+import { useBoardStore } from "../../store/board";
+
 const horizontalSquares = ["a", "b", "c", "d", "e", "f", "g", "h"];
 const verticalSquares = [1, 2, 3, 4, 5, 6, 7, 8];
 
@@ -46,6 +48,10 @@ export default function Chessboard() {
   const [tileTo, setTileTo] = useState("");
   const [activeSquare, setActiveSquare] = useState("");
   const [hightlighMoves, setHightlighMoves] = useState([]);
+
+  const boardStore: any = useBoardStore();
+
+  boardStore.board = boardState;
 
   const resetBoard = () => {
     setBoardState(initialSetup);
