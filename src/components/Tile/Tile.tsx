@@ -23,9 +23,8 @@ const availableMoves = ({ boardState, square, piece, color }: validMoves) => {
 
   const checkSquareForPiece = (moves: string[]) => {
     let validMoves: string[] = [];
-    console.log(moves);
     moves.forEach((move: any) => {
-      console.log(`${move} - ${boardState[move]}`);
+      // check if piece is same color of player
       if (boardState[move]?.c !== color) validMoves.push(move);
     });
     return validMoves;
