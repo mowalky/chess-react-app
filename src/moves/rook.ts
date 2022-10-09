@@ -14,22 +14,26 @@ const rookMoves = (x: number, y: string, color: string, board?: any) => {
 
   values.forEach((v, i) => {
     if (!WEST) {
-      moves.push(`${y}${x + v}`);
-      if (board[`${y}${x + v}`]?.p) WEST = true;
+      let move = `${y}${x + v}`;
+      moves.push(move);
+      if (board[move]?.p) WEST = true;
     }
     if (!EAST) {
-      moves.push(`${nextLetter(curLetter)}${x}`);
-      if (board[`${nextLetter(curLetter)}${x}`]?.p) EAST = true;
+      let move = `${nextLetter(curLetter)}${x}`;
+      moves.push(move);
+      if (board[move]?.p) EAST = true;
     }
 
     if (!SOUTH) {
-      moves.push(`${y}${x - (i + 1)}`);
-      if (board[`${y}${x - (i + 1)}`]?.p) SOUTH = true;
+      let move = `${y}${x - (i + 1)}`;
+      moves.push(move);
+      if (board[move]?.p) SOUTH = true;
     }
 
     if (!NORTH) {
-      moves.push(`${prevLetter(preletter)}${x}`);
-      if (board[`${prevLetter(preletter)}${x}`]?.p) NORTH = true;
+      let move = `${prevLetter(preletter)}${x}`;
+      moves.push(move);
+      if (board[move]?.p) NORTH = true;
     }
     curLetter = nextLetter(curLetter);
     preletter = prevLetter(preletter);
