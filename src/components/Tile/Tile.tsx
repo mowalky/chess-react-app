@@ -49,7 +49,7 @@ const availableMoves = ({ boardState, square, piece, color }: validMoves) => {
       break;
     case "rook":
       console.log(`(${color})rook moves from ${square}`);
-      moves = checkSquareForPiece(rookMoves(x, y, color));
+      moves = checkSquareForPiece(rookMoves(x, y, color, boardState));
       break;
     case "pawn":
       console.log(`(${color})pawn moves from ${square}`);
@@ -57,7 +57,7 @@ const availableMoves = ({ boardState, square, piece, color }: validMoves) => {
       break;
     case "queen":
       console.log(`(${color})bishop moves from ${square}`);
-      moves = checkSquareForPiece(queenMoves(x, y, color));
+      moves = checkSquareForPiece(queenMoves(x, y, color, boardState));
       break;
   }
 
