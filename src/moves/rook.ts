@@ -6,7 +6,7 @@ const rookMoves = (x: number, y: string, color: string, board?: any) => {
   let curLetter = y;
   let preletter = y;
 
-  // piece vision
+  //  piece check/stop
   let NORTH = false;
   let EAST = false;
   let WEST = false;

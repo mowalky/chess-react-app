@@ -37,7 +37,7 @@ const availableMoves = ({ boardState, square, piece, color }: validMoves) => {
   switch (piece) {
     case "bishop":
       console.log(`(${color})bishop moves from ${square}`);
-      moves = checkSquareForPiece(bishopMoves(x, y, color));
+      moves = checkSquareForPiece(bishopMoves(x, y, color, boardState));
       break;
     case "king":
       console.log(`(${color})king moves from ${square}`);
