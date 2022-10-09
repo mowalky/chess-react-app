@@ -6,27 +6,36 @@ const rookMoves = (x: number, y: string, color: string, board?: any) => {
   let curLetter = y;
   let preletter = y;
 
+  // piece vision
+  let NORTH = false;
+  let EAST = false;
+  let WEST = false;
+  let SOUTH = false;
+
   values.forEach((v, i) => {
     let moveW = `${y}${x + v}`;
-    if (!board[moveW]?.p) {
-      moves.push(moveW);
-    }
-
     let moveE = `${nextLetter(curLetter)}${x}`;
-    if (!board[moveE]?.p) {
-      moves.push(moveE);
-    }
-
     let moveS = `${y}${x - (i + 1)}`;
-    if (!board[moveS]?.p) {
-      moves.push(moveS);
-    }
-
     let moveN = `${prevLetter(preletter)}${x}`;
-    if (!board[moveN]?.p) {
-      moves.push(moveN);
+
+    if (!WEST) {
+      moves.push(moveW);
+      if (board[moveW]?.p) WEST = true;
+    }
+    if (!EAST) {
+      moves.push(moveE);
+      if (board[moveE]?.p) EAST = true;
     }
 
+    if (!SOUTH) {
+      moves.push(moveS);
+      if (board[moveS]?.p) SOUTH = true;
+    }
+
+    if (!NORTH) {
+      moves.push(moveN);
+      if (board[moveN]?.p) NORTH = true;
+    }
     curLetter = nextLetter(curLetter);
     preletter = prevLetter(preletter);
   });
