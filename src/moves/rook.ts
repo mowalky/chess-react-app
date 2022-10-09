@@ -7,10 +7,10 @@ const rookMoves = (x: number, y: string, color: string) => {
   let preletter = y;
 
   values.forEach((v, i) => {
-    console.log(x);
     moves.push(`${y}${x + v}`);
     moves.push(`${nextLetter(curLetter)}${x}`);
     moves.push(`${y}${x - (i + 1)}`);
+    console.log(`${prevLetter(preletter)}${x}`);
     moves.push(`${prevLetter(preletter)}${x}`);
     curLetter = nextLetter(curLetter);
     preletter = prevLetter(preletter);
