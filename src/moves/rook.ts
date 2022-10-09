@@ -7,26 +7,29 @@ const rookMoves = (x: number, y: string, color: string, board?: any) => {
   let preletter = y;
 
   // piece vision
-  let stopLeft = false;
-  let stopRight = false;
-  let stopUp = false;
-  let stopDown = false;
-  let stopLeftTopDiag = false;
-  let stopRightTopDiag = false;
-  let stopLeftBotDiag = false;
-  let stopRightBotDiag = false;
+  let NORTH = false;
+  let EAST = false;
+  let WEST = false;
+  let SOUTH = false;
 
   values.forEach((v, i) => {
-    if (!stopUp) {
+    if (!WEST) {
       moves.push(`${y}${x + v}`);
-      if (board[`${y}${x + v}`]?.p) stopUp = true;
+      if (board[`${y}${x + v}`]?.p) WEST = true;
     }
-    moves.push(`${nextLetter(curLetter)}${x}`);
-    moves.push(`${y}${x - (i + 1)}`);
+    if (!EAST) {
+      moves.push(`${nextLetter(curLetter)}${x}`);
+      if (board[`${nextLetter(curLetter)}${x}`]?.p) EAST = true;
+    }
 
-    if (!stopLeft) {
+    if (!SOUTH) {
+      moves.push(`${y}${x - (i + 1)}`);
+      if (board[`${y}${x - (i + 1)}`]?.p) SOUTH = true;
+    }
+
+    if (!NORTH) {
       moves.push(`${prevLetter(preletter)}${x}`);
-      if (board[`${prevLetter(preletter)}${x}`]?.p) stopLeft = true;
+      if (board[`${prevLetter(preletter)}${x}`]?.p) NORTH = true;
     }
     curLetter = nextLetter(curLetter);
     preletter = prevLetter(preletter);
