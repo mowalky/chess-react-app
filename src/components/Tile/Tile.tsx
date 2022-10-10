@@ -53,7 +53,7 @@ const availableMoves = ({ boardState, square, piece, color }: validMoves) => {
       break;
     case "pawn":
       console.log(`(${color})pawn moves from ${square}`);
-      moves = checkSquareForPiece(pawnMoves(x, y, color));
+      moves = checkSquareForPiece(pawnMoves(x, y, color, boardState));
       break;
     case "queen":
       console.log(`(${color})bishop moves from ${square}`);

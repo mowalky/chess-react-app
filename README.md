@@ -20,7 +20,7 @@ Just playing around with how to build a chess game using React.
 - [x] King movement
 - [x] Clicking on piece shows available moves
 - [ ] Piece vision (determining if a piece is blocking)
-- [ ] Capturing a chess piece
+- [ ] Tracking capturing a chess piece
 - [ ] Special moves (castling, En passant)
 - [ ] Pawn promotion
 - [ ] Tracking all chess moves

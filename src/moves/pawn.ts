@@ -1,10 +1,10 @@
-const pawnMoves = (x: number, y: string, color: string) => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-
-  // only allow pawns to move 2 spaces at beginning
+const pawnMoves = (x: number, y: string, color: string, board?: any) => {
+  let firstPawnMove = `${y}${color === "b" ? x - 2 : x + 2}`;
+  let nextPawnMove = `${y}${color === "b" ? x - 1 : x + 1}`;
   return [
-    `${y}${color === "b" ? x - 1 : x + 1}`,
-    `${(x === 2 || x === 7) && `${y}${color === "b" ? x - 2 : x + 2}`}`,
+    nextPawnMove,
+    // only allow pawns to move 2 spaces at beginning
+    `${(x === 2 || x === 7) && !board[nextPawnMove]?.p && firstPawnMove}`,
   ];
 };
 
