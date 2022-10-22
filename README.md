@@ -21,6 +21,7 @@ Just playing around with how to build a chess game using React.
 - [x] Clicking on piece shows available moves
 - [x] Piece vision (determining if a piece is blocking)
 - [ ] Tracking capturing a chess piece
+- [ ] FEN integration (rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR)
 - [ ] Special moves (castling, En passant)
 - [ ] Pawn promotion
 - [ ] Tracking all chess moves
