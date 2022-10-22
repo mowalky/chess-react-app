@@ -14,12 +14,12 @@ Just playing around with how to build a chess game using React.
 - [x] Ability to move pieces to any square
 - [x] Pawn movement
 - [x] Bishop movement
-- [ ] Knight movement
+- [x] Knight movement
 - [x] Rook movement
 - [x] Queen movement
 - [x] King movement
 - [x] Clicking on piece shows available moves
-- [ ] Piece vision (determining if a piece is blocking)
+- [x] Piece vision (determining if a piece is blocking)
 - [ ] Tracking capturing a chess piece
 - [ ] Special moves (castling, En passant)
 - [ ] Pawn promotion
