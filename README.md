@@ -32,6 +32,7 @@ Just playing around with how to build a chess game using React.
 
 #### PHASE III
 
+- [ ] Check & CheckMate
 - [ ] Pawn promotion
 
 #### PHASE IV
@@ -43,6 +44,7 @@ Just playing around with how to build a chess game using React.
 
 - [ ] Special moves (castling, En passant)
 
-#### PHASE VI
+#### FUTURE PHASES
 
 - [ ] Chess Engine (opponent)
+- [ ] Multi-player
