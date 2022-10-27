@@ -7,9 +7,11 @@ Just playing around with how to build a chess game using React.
   <br/><h6>REACT*CHESS</h6>
 </div>
 
-#### ROADMAP
+## ROADMAP
 
-### PHASE I
+---
+
+#### PHASE I
 
 - [x] Build out chessboard
 - [x] Setup pieces
@@ -23,24 +25,24 @@ Just playing around with how to build a chess game using React.
 - [x] Clicking on piece shows available moves
 - [x] Piece vision (determining if a piece is blocking)
 
-## PHASE II
+#### PHASE II
 
 - [ ] Tracking capturing a chess piece
 - [ ] FEN integration (rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR)
 
-## PHASE III
+#### PHASE III
 
 - [ ] Pawn promotion
 
-## PHASE IV
+#### PHASE IV
 
 - [ ] Tracking all chess moves
 - [ ] Replay moves
 
-## PHASE V
+#### PHASE V
 
 - [ ] Special moves (castling, En passant)
 
-## PHASE VI
+#### PHASE VI
 
 - [ ] Chess Engine (opponent)
