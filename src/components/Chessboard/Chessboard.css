@@ -25,7 +25,7 @@
     rgba(159, 130, 226, 1)
   );
 
-  height: auto;
+  height: "30px";
   display: flex;
   flex-direction: row;
 }
