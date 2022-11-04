@@ -103,8 +103,13 @@ export default function Chessboard() {
     newBoard[tileFrom] = {};
 
     // capture piece if exists on selected square
-    const capturePiece = newBoard[square].p;
-    if (capturePiece) {
+    const capturePiece = newBoard[square];
+    if (capturePiece?.p) {
+      console.log(capturePiece);
+      let piece = capturePiece.p;
+      let color = capturePiece.c;
+      // store captured piece
+      boardStore[`${color}Captured`].push(`${piece}_${color}`);
       console.log(`=== captured ${capturePiece}! ===`);
     }
     newBoard[square] = getPiece;
@@ -152,6 +157,13 @@ export default function Chessboard() {
       </button>
       <div id="chessboard">{board}</div>
       <button onClick={() => resetBoard()}>reset</button>
+      <div id="captured">
+        {boardStore.bCaptured.map((piece: string, idx: number) => (
+          <div className="captured-piece" key={idx}>
+            <img width="30" alt={piece} src={`/assets/images/${piece}.png`} />
+          </div>
+        ))}
+      </div>
     </>
   );
 }
