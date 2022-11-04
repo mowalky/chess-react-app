@@ -8,13 +8,29 @@
 }
 
 #captured {
-  background-color: pink;
+  background: rgba(7, 157, 166, 1);
+  background: -webkit-radial-gradient(
+    top left,
+    rgba(7, 157, 166, 1),
+    rgba(159, 130, 226, 1)
+  );
+  background: -moz-radial-gradient(
+    top left,
+    rgba(7, 157, 166, 1),
+    rgba(159, 130, 226, 1)
+  );
+  background: radial-gradient(
+    to bottom right,
+    rgba(7, 157, 166, 1),
+    rgba(159, 130, 226, 1)
+  );
+
   height: auto;
   display: flex;
   flex-direction: row;
 }
 
 .captured-piece {
-  background-color: rgb(255, 255, 255);
-  border: 4px solid #ccc;
+  background-color: rgb(221, 221, 221);
+  border: 4px solid rgb(70, 118, 190);
 }

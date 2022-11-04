@@ -55,6 +55,8 @@ export default function Chessboard() {
 
   const resetBoard = () => {
     setBoardState(initialSetup);
+    boardStore.wCaptured = [];
+    boardStore.bCaptured = [];
     resetTiles();
     setHightlighMoves([]);
   };
@@ -152,6 +154,13 @@ export default function Chessboard() {
 
   return (
     <>
+      <div id="captured">
+        {boardStore.wCaptured.map((piece: string, idx: number) => (
+          <div className="captured-piece" key={idx}>
+            <img width="30" alt={piece} src={`/assets/images/${piece}.png`} />
+          </div>
+        ))}
+      </div>
       <button>
         from:{tileFrom} - to:{tileTo}
       </button>
