@@ -55,6 +55,8 @@ export default function Chessboard() {
 
   const resetBoard = () => {
     setBoardState(initialSetup);
+    boardStore.wCaptured = [];
+    boardStore.bCaptured = [];
     resetTiles();
     setHightlighMoves([]);
   };
@@ -101,7 +103,19 @@ export default function Chessboard() {
       ...boardState,
     };
     newBoard[tileFrom] = {};
+
+    // capture piece if exists on selected square
+    const capturePiece = newBoard[square];
+    if (capturePiece?.p) {
+      console.log(capturePiece);
+      let piece = capturePiece.p;
+      let color = capturePiece.c;
+      // store captured piece
+      boardStore[`${color}Captured`].push(`${piece}_${color}`);
+      console.log(`=== captured ${capturePiece}! ===`);
+    }
     newBoard[square] = getPiece;
+
     setBoardState(newBoard);
     resetTiles();
   };
@@ -140,11 +154,25 @@ export default function Chessboard() {
 
   return (
     <>
+      <div id="captured">
+        {boardStore.wCaptured.map((piece: string, idx: number) => (
+          <div className="captured-piece" key={idx}>
+            <img width="30" alt={piece} src={`/assets/images/${piece}.png`} />
+          </div>
+        ))}
+      </div>
       <button>
         from:{tileFrom} - to:{tileTo}
       </button>
       <div id="chessboard">{board}</div>
       <button onClick={() => resetBoard()}>reset</button>
+      <div id="captured">
+        {boardStore.bCaptured.map((piece: string, idx: number) => (
+          <div className="captured-piece" key={idx}>
+            <img width="30" alt={piece} src={`/assets/images/${piece}.png`} />
+          </div>
+        ))}
+      </div>
     </>
   );
 }
