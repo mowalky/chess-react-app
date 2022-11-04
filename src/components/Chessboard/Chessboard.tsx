@@ -101,7 +101,14 @@ export default function Chessboard() {
       ...boardState,
     };
     newBoard[tileFrom] = {};
+
+    // capture piece if exists on selected square
+    const capturePiece = newBoard[square].p;
+    if (capturePiece) {
+      console.log(`=== captured ${capturePiece}! ===`);
+    }
     newBoard[square] = getPiece;
+
     setBoardState(newBoard);
     resetTiles();
   };
