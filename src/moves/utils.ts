@@ -18,9 +18,14 @@ export function prevLetter(letter: string) {
 }
 
 export function fen(fen: string) {
-  const test = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
+  //const test = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
 
   // convert to FEN format
+
+  // split FEND string into rows
+  const rows = fen.split("/");
+
+  console.log(rows);
 
   // convert back
 }

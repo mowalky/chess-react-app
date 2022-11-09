@@ -1,6 +1,8 @@
 import "./Chessboard.css";
 import Tilt from "../Tile/Tile";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+import { fen } from "../../moves/utils";
 
 import { useBoardStore } from "../../store/board";
 
@@ -52,6 +54,10 @@ export default function Chessboard() {
   const boardStore: any = useBoardStore();
 
   boardStore.board = boardState;
+
+  useEffect(() => {
+    fen("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR");
+  }, [boardState]);
 
   const resetBoard = () => {
     setBoardState(initialSetup);
