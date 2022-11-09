@@ -17,15 +17,24 @@ export function prevLetter(letter: string) {
     : "";
 }
 
+function currLetter(number: number) {
+  return String.fromCharCode(94 + (number + 3));
+}
+
 export function fen(fen: string) {
   //const test = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
 
   // convert to FEN format
 
+  const boardState = { a1: { p: "rook", c: "w" } };
+
   // split FEND string into rows
   const rows = fen.split("/");
 
-  console.log(rows);
+  rows.forEach((row: any, idx: number) => {
+    //console.log(row);
+    console.log("row", currLetter(idx));
+  });
 
   // convert back
 }
