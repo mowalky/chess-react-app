@@ -16,3 +16,11 @@ export function prevLetter(letter: string) {
     ? prevLetter
     : "";
 }
+
+export function fen(fen: string) {
+  const test = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
+
+  // convert to FEN format
+
+  // convert back
+}
