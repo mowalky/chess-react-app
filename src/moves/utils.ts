@@ -24,9 +24,10 @@ function currLetter(number: number) {
 export function fen(fen: string) {
   //const test = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR";
 
-  const pieces: { r: string; n: string } = {
+  const pieces: any = {
     r: "rook",
     n: "knight",
+    b: "bishop",
   };
 
   // convert to FEN format
@@ -41,30 +42,12 @@ export function fen(fen: string) {
     console.log("row", currLetter(idx));
     for (let square in row) {
       let sq = row[square];
-      if (sq === "r") {
-        boardState[`${currLetter(idx)}${+square + 1}`] = {
-          p: "rook",
-          c: "b",
-        };
-      }
-      if (sq === "R") {
-        boardState[`${currLetter(idx)}${+square + 1}`] = {
-          p: "rook",
-          c: "W",
-        };
-      }
-      if (sq === "b") {
-        boardState[`${currLetter(idx)}${+square + 1}`] = {
-          p: "bishop",
-          c: "b",
-        };
-      }
-      if (sq === "B") {
-        boardState[`${currLetter(idx)}${+square + 1}`] = {
-          p: "bishop",
-          c: "W",
-        };
-      }
+      let color = sq === sq.toUpperCase() ? "w" : "b";
+
+      boardState[`${currLetter(idx)}${+square + 1}`] = {
+        p: pieces[sq.toLowerCase()],
+        c: color,
+      };
     }
   });
 
