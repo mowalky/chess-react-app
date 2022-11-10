@@ -28,6 +28,9 @@ export function fen(fen: string) {
     r: "rook",
     n: "knight",
     b: "bishop",
+    q: "queen",
+    k: "king",
+    p: "pawn",
   };
 
   // convert to FEN format
@@ -40,14 +43,16 @@ export function fen(fen: string) {
   rows.forEach((row: any, idx: number) => {
     //console.log(row);
     console.log("row", currLetter(idx));
+    let i = 0;
     for (let square in row) {
       let sq = row[square];
       let color = sq === sq.toUpperCase() ? "w" : "b";
 
-      boardState[`${currLetter(idx)}${+square + 1}`] = {
+      boardState[`${currLetter(i)}${idx + 1}`] = {
         p: pieces[sq.toLowerCase()],
         c: color,
       };
+      i++;
     }
   });
 
