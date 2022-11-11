@@ -40,22 +40,26 @@ export function fen(fen: string) {
   // split FEND string into rows
   const rows = fen.split("/");
 
-  rows.forEach((row: any, idx: number) => {
+  rows.reverse().forEach((row: any, idx: number) => {
     //console.log(row);
     let i = 0;
+    idx++;
 
     for (let square in row) {
       let sq = row[square];
-      // if (+sq) {
-      //   i = i + +sq;
-      // }
-      let color = sq === sq.toUpperCase() ? "w" : "b";
+      console.log("sq", sq);
+      console.log("i:", i);
+      if (+sq) {
+        i = +sq + i;
+      } else {
+        let color = sq === sq.toUpperCase() ? "w" : "b";
 
-      boardState[`${currLetter(i)}${idx + 8}`] = {
-        p: pieces[sq.toLowerCase()],
-        c: color,
-      };
-      i++;
+        boardState[`${currLetter(i)}${idx}`] = {
+          p: pieces[sq.toLowerCase()],
+          c: color,
+        };
+        i++;
+      }
     }
   });
 

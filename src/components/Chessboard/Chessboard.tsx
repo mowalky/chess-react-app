@@ -143,7 +143,7 @@ const initialSetup: any = {
 export default function Chessboard() {
   const [boardState, setBoardState] = useState(
     //fen("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR")
-    fen("r1b1k3r")
+    fen("rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R")
   );
   const [tileFrom, setTileFrom] = useState("");
   const [tileTo, setTileTo] = useState("");
