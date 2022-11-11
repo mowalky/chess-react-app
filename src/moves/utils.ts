@@ -46,17 +46,16 @@ export function fen(fen: string) {
 
     for (let square in row) {
       let sq = row[square];
-      if (!+sq) {
-        let color = sq === sq.toUpperCase() ? "w" : "b";
+      // if (+sq) {
+      //   i = i + +sq;
+      // }
+      let color = sq === sq.toUpperCase() ? "w" : "b";
 
-        boardState[`${currLetter(i)}${idx + 1}`] = {
-          p: pieces[sq.toLowerCase()],
-          c: color,
-        };
-        i++;
-      } else {
-        i = +sq + 1;
-      }
+      boardState[`${currLetter(i)}${idx + 8}`] = {
+        p: pieces[sq.toLowerCase()],
+        c: color,
+      };
+      i++;
     }
   });
 
