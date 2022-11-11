@@ -34,26 +34,20 @@ export function fen(fen: string) {
   };
 
   // convert to FEN format
-
   const boardState: any = {};
-
   // split FEND string into rows
   const rows = fen.split("/");
 
   rows.reverse().forEach((row: any, idx: number) => {
-    //console.log(row);
     let i = 0;
     idx++;
 
     for (let square in row) {
       let sq = row[square];
-      console.log("sq", sq);
-      console.log("i:", i);
       if (+sq) {
         i = +sq + i;
       } else {
         let color = sq === sq.toUpperCase() ? "w" : "b";
-
         boardState[`${currLetter(i)}${idx}`] = {
           p: pieces[sq.toLowerCase()],
           c: color,
