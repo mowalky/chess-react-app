@@ -142,8 +142,8 @@ const initialSetup: any = {
 
 export default function Chessboard() {
   const [boardState, setBoardState] = useState(
-    //fen("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR")
-    fen("rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R")
+    fen("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR")
+    //fen("rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R")
   );
   const [tileFrom, setTileFrom] = useState("");
   const [tileTo, setTileTo] = useState("");
@@ -154,9 +154,9 @@ export default function Chessboard() {
 
   boardStore.board = boardState;
 
-  useEffect(() => {
-    // fen("4kb1r/p4ppp/4q3/8/8/1B6/PPP2PPP/2KR4");
-  }, [boardState]);
+  // useEffect(() => {
+  //   // fen("4kb1r/p4ppp/4q3/8/8/1B6/PPP2PPP/2KR4");
+  // }, [boardState]);
 
   const resetBoard = () => {
     setBoardState(initialSetup);
