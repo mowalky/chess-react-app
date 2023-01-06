@@ -9,7 +9,9 @@ const pawnMoves = (x: number, y: string, color: string, board?: any) => {
     color === "b" ? x - 1 : x + 1
   }`;
   return [
-    nextPawnMove,
+    // only allow pawn to move forward if there is no piece in front
+    `${!board[nextPawnMove]?.p ? nextPawnMove : ""}`,
+
     // only allow pawns to move 2 spaces at beginning
     `${(x === 2 || x === 7) && !board[nextPawnMove]?.p && firstPawnMove}`,
     // allow pawns to capture diagonally
