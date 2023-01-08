@@ -150,3 +150,36 @@ function pieceToCell(piece: string, color: "w" | "b"): string {
   } as Record<string, string>;
   return colorMap[color] + pieceMap[piece];
 }
+
+function enPassant(move: string, boardState: any) {
+  // Check if the pawn at the starting position of the move is making a two-square advance
+  const fromPos = move.slice(0, 2);
+  const toPos = move.slice(2, 4);
+  const piece = boardState[fromPos];
+  if (
+    piece.p === "pawn" &&
+    ((fromPos[1] === "7" && toPos[1] === "5") ||
+      (fromPos[1] === "2" && toPos[1] === "4"))
+  ) {
+    // Check if there is an enemy pawn to the left or right that could have advanced two squares on its previous move
+    const enemyPawnPos =
+      fromPos[0] === "a"
+        ? `${String.fromCharCode(fromPos.charCodeAt(0) + 1)}${fromPos[1]}`
+        : fromPos[0] === "h"
+        ? `${String.fromCharCode(fromPos.charCodeAt(0) - 1)}${fromPos[1]}`
+        : null;
+    if (
+      enemyPawnPos &&
+      boardState[enemyPawnPos] &&
+      boardState[enemyPawnPos].p === "pawn" &&
+      boardState[enemyPawnPos].c !== piece.c
+    ) {
+      // Update the board state to reflect the capture
+      const newBoardState = { ...boardState };
+      delete newBoardState[enemyPawnPos];
+      return newBoardState;
+    }
+  }
+  // If the pawn is not making a two-square advance, or if there is no enemy pawn that can be captured en passant, then return the original board state
+  return boardState;
+}
