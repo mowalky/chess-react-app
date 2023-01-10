@@ -34,4 +34,12 @@ const isKingInCheck = (x: number, y: string, color: string, board: Board) => {
   return false;
 };
 
+const canCastle = (color: string, board: Board, castleRights: CastleRights) => {
+  if (color === "b") {
+    return castleRights.bk || castleRights.bq;
+  } else {
+    return castleRights.wk || castleRights.wq;
+  }
+};
+
 export default kingMoves;
